@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'registrations\register.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div name="signup">
+    <label >Login</label>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" id="username"placeholder='username'>
+        <input type="password" name="password" id="password" placeholder="password"  required>
+        <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" -->
+        <button type="submit">Login</button>
+    </form>
+    {% for message in messages%}
+    <h1>{{message}}</h1>
+    {%endfor%}
+</div>
+    
+</body>
+</html>
